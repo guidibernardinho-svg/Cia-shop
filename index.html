@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIAShop - Nintendo 3DS Homebrew Store</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="shop-container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div>
+          <div class="logo">CIA<span>Shop</span></div>
+          <div class="logo-sub">Nintendo 3DS · Homebrew Store</div>
+        </div>
+        <div class="header-info">
+          <div class="online" id="onlineStatus">● ONLINE</div>
+          <div class="clock" id="clock"></div>
+          <div class="version">v2.3.1 · sys 11.17U</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <span class="tag tag-blue">3DS/2DS</span>
+      <span class="tag tag-green">CIA</span>
+      <span class="tag tag-purple">eShop</span>
+      <span class="total-count">📦 <span id="totalCount">0</span> títulos disponíveis</span>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-title">CATEGORIAS</div>
+        <nav id="categoryNav">
+          <div class="cat-item active" data-cat="all">
+            <span class="icon">◈</span> Todos <span class="cat-count" id="cnt-all">0</span>
+          </div>
+          <div class="cat-item" data-cat="action">
+            <span class="icon">⚔</span> Ação <span class="cat-count" id="cnt-action">0</span>
+          </div>
+          <div class="cat-item" data-cat="rpg">
+            <span class="icon">🗡</span> RPG <span class="cat-count" id="cnt-rpg">0</span>
+          </div>
+          <div class="cat-item" data-cat="platform">
+            <span class="icon">◉</span> Plataforma <span class="cat-count" id="cnt-platform">0</span>
+          </div>
+          <div class="cat-item" data-cat="puzzle">
+            <span class="icon">◫</span> Puzzle <span class="cat-count" id="cnt-puzzle">0</span>
+          </div>
+          <div class="cat-item" data-cat="sports">
+            <span class="icon">⊞</span> Esportes <span class="cat-count" id="cnt-sports">0</span>
+          </div>
+          <div class="cat-item" data-cat="adventure">
+            <span class="icon">◎</span> Aventura <span class="cat-count" id="cnt-adventure">0</span>
+          </div>
+          <div class="cat-item" data-cat="homebrew">
+            <span class="icon">⊛</span> Homebrew <span class="cat-count" id="cnt-homebrew">0</span>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- CONTENT AREA -->
+      <main class="content-area">
+        <!-- SEARCH BAR -->
+        <div class="search-bar">
+          <input
+            class="search-input"
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Buscar título CIA..."
+            autocomplete="off"
+          >
+          <select class="sort-select" id="sortSelect">
+            <option value="alpha">A-Z</option>
+            <option value="size">Tamanho</option>
+            <option value="rating">Avaliação</option>
+            <option value="new">Mais Novos</option>
+          </select>
+        </div>
+
+        <!-- GAMES GRID -->
+        <div class="games-grid" id="gamesGrid"></div>
+
+        <!-- DETAIL PANEL -->
+        <div class="detail-panel" id="detailPanel"></div>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="controls">
+        <span><kbd class="btn-key">A</kbd> Selecionar</span>
+        <span><kbd class="btn-key">B</kbd> Voltar</span>
+        <span><kbd class="btn-key">X</kbd> Baixar</span>
+        <span><kbd class="btn-key">Y</kbd> Info</span>
+      </div>
+      <div id="selectedTitle" class="selected-title"></div>
+    </footer>
+  </div>
+
+  <!-- DOWNLOAD MODAL -->
+  <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-icon" id="modalIcon">📦</div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-btns">
+        <button class="modal-btn modal-btn-ok" id="confirmDownload">▼ INSTALAR CIA</button>
+        <button class="modal-btn modal-btn-cancel" id="cancelDownload">✕ CANCELAR</button>
+      </div>
+      <div class="progress-bar" id="progBar">
+        <div class="progress-fill" id="progFill"></div>
+      </div>
+      <div class="progress-text" id="progText"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
